@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -euox pipefail
 
-echo "${0##*/}": Building...
-dotnet build --configuration Release --nologo
+cd "$(dirname "${BASH_SOURCE[0]}")"
 
-echo "${0##*/}": Testing...
-dotnet test --configuration Release --no-build --nologo
+export DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export DOTNET_NOLOGO=1
+
+dotnet tool restore
+
+dotnet cake "$@"
