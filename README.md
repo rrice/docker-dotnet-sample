@@ -2,7 +2,7 @@
 
 ## Motovation
 
-This is my personal comprehesive dockerized .NET 5.0 application project. I wanted to be
+This is my personal comprehesive dockerized .NET application project. I wanted to be
 able to create something that is less of "toy" sample and more of a "real world"
 sample. I see a lot of developers get stuck trying to get from the basics to something
 more advanced. Even with myself, I find myself wondering if I can be a better
@@ -13,7 +13,7 @@ Some of my (often lofty) goals for this repository would be:
 * Evolve an application from a basic monolithic application something you may
   see at a larger scale enterprise.
 * Leverage modern technology framework seen by the typical full-stack developer,
-  and how each would fit in with a .NET 5.0 ecosystem.
+  and how each would fit in with a .NET ecosystem.
 * Hopefully tackle some common application concerns outside typical business logic
   such as user security, authentication / authorization, monitoring, etc.
 

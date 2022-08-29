@@ -6,7 +6,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/MySimpleService/bin/Debug/net5.0/MySimpleService.dll",
+            "program": "${workspaceFolder}/src/MySimpleService/bin/Debug/net6.0/MySimpleService.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/MySimpleService",
             "stopAtEntry": false,

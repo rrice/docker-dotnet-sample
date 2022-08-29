@@ -45,7 +45,7 @@
                 "build"
             ],
             "dockerBuild": {
-                "tag": "docker-dotnet-5.0-sample:dev",
+                "tag": "docker-dotnet-sample:dev",
                 "target": "base",
                 "dockerfile": "${workspaceFolder}/src/MySimpleService/Dockerfile",
                 "context": "${workspaceFolder}",
@@ -62,7 +62,7 @@
                 "build"
             ],
             "dockerBuild": {
-                "tag": "docker-dotnet-5.0-sample:latest",
+                "tag": "docker-dotnet-sample:latest",
                 "dockerfile": "${workspaceFolder}/src/MySimpleService/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
