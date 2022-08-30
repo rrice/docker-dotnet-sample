@@ -1,4 +1,4 @@
-#addin nuget:?package=Cake.Docker&version=1.0.0
+#addin nuget:?package=Cake.Docker&version=1.1.2
 using System.Reflection;
 
 var target = Argument("target", "Test");
@@ -24,6 +24,7 @@ Task("Clean")
 Task("Build")
     .IsDependentOn("Clean")
     .Does(() => {
+        NuGetRestore(".");
         Information("Building {0}", solution);
         DotNetCoreBuild(solution, new DotNetCoreBuildSettings {
             Configuration = configuration,

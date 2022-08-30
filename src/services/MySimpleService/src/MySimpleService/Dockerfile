@@ -17,8 +17,8 @@ RUN dotnet publish -c release -o /app
 
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
-ENV ASPNETCORE_URLS=http://*:80
-EXPOSE 80
+ENV ASPNETCORE_URLS=http://*:6000
+EXPOSE 6000
 WORKDIR /app
 COPY --from=build /app .
 ENTRYPOINT ["dotnet", "MySimpleService.dll"]
