@@ -1,4 +1,4 @@
-# Comprehensive Dockerized .NET 5.0 Microservice Sample
+# Comprehensive Dockerized .NET Microservice Sample
 
 ## Motovation
 
