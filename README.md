@@ -1,8 +1,8 @@
-# Comprehensive Dockerized .NET Microservice Sample
+# Comprehensive .NET Microservice Sample
 
 ## Motovation
 
-This is my personal comprehesive dockerized .NET application project. I wanted to be
+This is my personal comprehesive containerized .NET application project. I wanted to be
 able to create something that is less of "toy" sample and more of a "real world"
 sample. I see a lot of developers get stuck trying to get from the basics to something
 more advanced. Even with myself, I find myself wondering if I can be a better
@@ -31,7 +31,7 @@ Some of my (often lofty) goals for this repository would be:
 The following techonologies are used in this sample:
 
 * [.NET 6.0](https://docs.microsoft.com/en-us/dotnet/)
-* [Docker](https://www.docker.com/)
+* A container system such as [Podman](https://podman.io) or [Docker](https://www.docker.com/). 
 * [Cake](https://cakebuild.net) - Build system.
 * [Bash](https://www.gnu.org/software/bash/) (POSIX) - Optional bootstrapper
   for Cake.
@@ -58,6 +58,14 @@ use one of these bootstraping scripts:
 
 The default target is `Test`.
 
-To build the docker container, execute the Cake target `Docker-Build`:
+To build the container, execute the Cake target `Docker-Build`:
 
     ./build.sh --target=Docker-Build
+
+If you use [Podman](https://podman.io) on Linux exclusively, then you may want to add a symbolic
+link in your path, for example:
+
+    ln -s /usr/bin/podman /usr/local/bin/docker
+
+
+
