@@ -3,7 +3,7 @@ using System.Reflection;
 
 var target = Argument("target", "Test");
 var configuration = Argument("configuration", "Release");
-var solution = "./MySimpleService.sln";
+var solution = "./TodoService.sln";
 
 Task("Clean")
     .Does(() => {
@@ -47,7 +47,7 @@ Task("Docker-Build")
     .IsDependentOn("Test")
     .Does(() => {
         Information("Building docker image");
-        DockerBuild( "./src/MySimpleService");
+        DockerBuild( "./src/TodoService");
     });
 
 RunTarget(target);

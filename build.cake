@@ -60,10 +60,10 @@ Task("Docker-Build")
     .Does(() => {
         DockerBuild(new DockerImageBuildSettings() {
             Tag = new string[] {
-                "rrice/my-simple-service:1.0",
-                "rrice/my-simple-service:latest"
+                "rrice/todo-service:1.0",
+                "rrice/todo-service:latest"
             }
-        }, "./src/services/MySimpleService/src/MySimpleService");
+        }, "./src/services/TodoService/src/TodoService");
     });
 
 RunTarget(target);

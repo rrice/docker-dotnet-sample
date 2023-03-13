@@ -6,9 +6,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/MySimpleService/bin/Debug/net6.0/MySimpleService.dll",
+            "program": "${workspaceFolder:TodoService}/src/TodoService/bin/Debug/net6.0/TodoService.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src/MySimpleService",
+            "cwd": "${workspaceFolder}/src/TodoService",
             "stopAtEntry": false,
             "serverReadyAction": {
                 "action": "openExternally",
@@ -18,7 +18,7 @@
                 "ASPNETCORE_ENVIRONMENT": "Development"
             },
             "sourceFileMap": {
-                "/Views": "${workspaceFolder}/Views"
+                "/Views": "${workspaceFolder:TodoService}/src/TodoService/Views"
             }
         },
         {
@@ -33,7 +33,7 @@
             "request": "launch",
             "preLaunchTask": "docker-run: debug",
             "netCore": {
-                "appProject": "${workspaceFolder}/src/MySimpleService/MySimpleService.csproj"
+                "appProject": "${workspaceFolder:TodoService}/src/TodoService/TodoService.csproj"
             }
         }
     ]

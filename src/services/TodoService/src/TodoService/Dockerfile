@@ -21,4 +21,4 @@ ENV ASPNETCORE_URLS=http://*:6000
 EXPOSE 6000
 WORKDIR /app
 COPY --from=build /app .
-ENTRYPOINT ["dotnet", "MySimpleService.dll"]
+ENTRYPOINT ["dotnet", "TodoService.dll"]

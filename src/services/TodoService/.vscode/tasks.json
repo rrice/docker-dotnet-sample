@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/src/MySimpleService/MySimpleService.csproj",
+                "${workspaceFolder:TodoService}/src/TodoService/TodoService.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/src/MySimpleService/MySimpleService.csproj",
+                "${workspaceFolder:TodoService}/src/TodoService/TodoService.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,7 +32,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/src/MySimpleService/MySimpleService.csproj",
+                "${workspaceFolder:TodoService}/src/TodoService/TodoService.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -47,12 +47,12 @@
             "dockerBuild": {
                 "tag": "docker-dotnet-sample:dev",
                 "target": "base",
-                "dockerfile": "${workspaceFolder}/src/MySimpleService/Dockerfile",
-                "context": "${workspaceFolder}",
+                "dockerfile": "${workspaceFolder:TodoService}/src/TodoService/Dockerfile",
+                "context": "${workspaceFolder:TodoService}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/src/MySimpleService/MySimpleService.csproj"
+                "appProject": "${workspaceFolder:TodoService}/src/TodoService/TodoService.csproj"
             }
         },
         {
@@ -63,12 +63,12 @@
             ],
             "dockerBuild": {
                 "tag": "docker-dotnet-sample:latest",
-                "dockerfile": "${workspaceFolder}/src/MySimpleService/Dockerfile",
-                "context": "${workspaceFolder}",
+                "dockerfile": "${workspaceFolder:TodoService}/src/TodoService/Dockerfile",
+                "context": "${workspaceFolder:TodoService}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/src/MySimpleService/MySimpleService.csproj"
+                "appProject": "${workspaceFolder:TodoService}/src/TodoService/TodoService.csproj"
             }
         },
         {
@@ -79,7 +79,7 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/src/MySimpleService/MySimpleService.csproj",
+                "appProject": "${workspaceFolder:TodoService}/src/TodoService/TodoService.csproj",
                 "enableDebugging": true
             }
         },
@@ -91,7 +91,7 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/src/MySimpleService/MySimpleService.csproj"
+                "appProject": "${workspaceFolder:TodoService}/src/TodoService/TodoService.csproj"
             }
         }
     ]
