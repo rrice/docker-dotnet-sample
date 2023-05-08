@@ -7,21 +7,46 @@ using System;
 using System.Net.Http.Json;
 using System.Net;
 using Microsoft.Extensions.DependencyInjection;
+using System.Net.Http;
 
 namespace TodoService
 {
     public class TodoServiceTest
     {
-        private Stack<Action> actions;
-
         public TodoServiceTest()
         {
+        }
+
+
+        private async Task SetupDatabase(TodoApplication application, Action<TodoContext> configure = null)
+        {
+            using (var scope = application.Services.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<TodoContext>();
+                if (configure != null)
+                {
+                    configure(db);
+                }
+                await db.SaveChangesAsync();
+            }
         }
 
         [Fact]
         public async Task FindAll_ItemsArePresent()
         {
-            await Task.CompletedTask;
+
+            await using var application = new TodoApplication();
+            var client = application.CreateClient();
+            await SetupDatabase(application, async db =>
+            {
+                await db.AddAsync(new TodoItem()
+                {
+                    Description = "Test Item 1",
+                    Status = TodoItemStatus.New
+                });
+            });
+            var result = await client.GetFromJsonAsync<List<TodoItem>>("/todo");
+            Assert.NotEmpty(result);
         }
 
         [Fact]
@@ -40,6 +65,24 @@ namespace TodoService
             var client = application.CreateClient();
             var result = await client.GetAsync("/todo/1");
             Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
+
+        }
+
+        [Fact]
+        public async Task Get_ItemIsPresent_ReturnsOK()
+        {
+            await using var application = new TodoApplication();
+            var client = application.CreateClient();
+            await SetupDatabase(application, async db =>
+            {
+                await db.AddAsync(new TodoItem()
+                {
+                    Description = "Test Item 1",
+                    Status = TodoItemStatus.New
+                });
+            });
+            var result = await client.GetAsync("/todo/1");
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
 
         }
 
